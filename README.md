@@ -3,7 +3,7 @@ title: "Analyses of Genome Data (VCF and PLINK)"
 collection: teaching
 type: "Workshop"
 venue: "UCLA, QCBio Collaboratory"
-date: 2016-01-01
+date: 2021-11-01
 location: "UCLA, USA"
 ---
 
