@@ -1,23 +1,24 @@
 ---
 title: "Analyses of genome data (VCF and PLINK)"
 collection: teaching
-type: "QCBio Workshop"
-venue: "UCLA"
-date: 2021-01-01
-location: "UCLA, USA"
+type: "Summer course"
+permalink: /teaching/NGS
+venue: "Aarhus University, Bioinformatics Research Center"
+date: 2016-01-01
+location: "Aarhus University, Denmark"
 ---
 
 Workshop description
 =====================
 
 High-throughput sequencing technologies have allowed researchers to extract DNA at the individual, population, and species levels. 
-In this workshop students will learn how to analyze and interpret population level genetic information with PLINK and R.
-Students will also be exposed to the literature in the different topics, followed by hands on exercises and paper discussion.
+In this workshop, students will learn how to analyze and interpret population-level genetic information with PLINK and R.
+Students will also be exposed to the literature on the different topics, followed by hands-on exercises and paper discussion.
 
 
 Learning goals
 =====================
-At the end of the workshop the students will be able to:
+At the end of the workshop, the students will be able to:
 
 * Describe what a variant calling file (VCF) format is and how to manage those files.
 * Conduct quality assesment of a VCF.
@@ -32,7 +33,7 @@ Day 1 (3 hours)
 =====================
 * Background lecture (45 minutes)
 	- What is a VCF?
-	- What is QC and why is it so important?
+	- What is QC, and why is it so important?
 * Break (15 minutes)
 * Hands on exercise (1 hour)
 	- VCF Data management (read, recode, reorder, merge, subset, compress data)
@@ -60,12 +61,12 @@ Day 2 (3 hours)
 Day 3 (3 hours)
 =====================
 * Peer review of previous assignment (15 minutes)
-* Background lecture (45 hour)
+* Background lecture (45 minutes)
 	- What is association testing and GWAS?
 	- What is a Manhattan plot and a Q-Q plot?
 	- What is a copy number variant?
 * Break (15 minutes)
-* Hands on exercise (1 hour and 30 minutes)
+* Hands-on exercise (1 hour and 30 minutes)
 	- Basic association testing
 	- GWAS accounting for population structure
 	- CNV detection
