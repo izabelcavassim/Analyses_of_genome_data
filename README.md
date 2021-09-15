@@ -1,5 +1,5 @@
 ---
-title: "Analyses of genome data (VCF and PLINK)"
+title: "Analyses of Genome Data (VCF and PLINK)"
 collection: teaching
 type: "Workshop"
 venue: "UCLA, QCBio Collaboratory"
