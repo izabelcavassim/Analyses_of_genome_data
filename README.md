@@ -1,11 +1,10 @@
 ---
 title: "Analyses of genome data (VCF and PLINK)"
 collection: teaching
-type: "Summer course"
-permalink: /teaching/NGS
-venue: "Aarhus University, Bioinformatics Research Center"
+type: "Workshop"
+venue: "UCLA, QCBio Collaboratory"
 date: 2016-01-01
-location: "Aarhus University, Denmark"
+location: "UCLA, USA"
 ---
 
 Workshop description
