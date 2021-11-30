@@ -353,26 +353,27 @@ pre code {
 </div>
 
 
-<div id="gvhh-exercise-1" class="section level1">
-<h1>GVHH Exercise 1:</h1>
+<div id="assignment-1" class="section level1">
+<h1>Assignment 1:</h1>
 <div id="gwas-quality-control-using-plink" class="section level2">
 <h2>GWAS Quality Control using PLINK</h2>
 <p>Software: We will be using plink 1.9 which can be downloaded here: <a href="https://www.cog-genomics.org/plink/1.9/" class="uri">https://www.cog-genomics.org/plink/1.9/</a></p>
 <p>Plink is a comprehensive tool for handling and analyzing SNP data that can perform many different kinds of analyses. In the left side panel of the website you can see links to the documentation of the different plink data formats and functions.</p>
 <p>If you want info about a specific command you can also use help command:</p>
-<pre class="bash"><code>plink --help &lt;name_of_command&gt;</code></pre>
+<pre class="bash"><code># shell
+plink --help &lt;name_of_command&gt;</code></pre>
 <p>We will also be using R and Rstudio to make plots and make simple calculations. R can be downloaded here: <a href="http://mirrors.dotsrc.org/cran/" class="uri">http://mirrors.dotsrc.org/cran/</a> Rstudio here: <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a></p>
 </div>
 </div>
 <div id="data" class="section level1">
 <h1>Data:</h1>
 <p>In this practical, we will go through quality control (QC) steps of SNP/genotype data from a simulated genome-wide association study of 1000 cases and 1000 controls, typed for 317,503 autosomal and X chromosome SNPs.</p>
-<p>The data set for this exercise can be downloaded from the [Dropbox] website](<a href="https://www.dropbox.com/sh/l1htxivc3j56mh4/AABOiapxu9_cQnIf6vXZDelJa?dl=0" class="uri">https://www.dropbox.com/sh/l1htxivc3j56mh4/AABOiapxu9_cQnIf6vXZDelJa?dl=0</a>)</p>
+<p>The data set for this exercise can be downloaded from the <a href="https://www.dropbox.com/sh/l1htxivc3j56mh4/AABOiapxu9_cQnIf6vXZDelJa?dl=0">Dropbox website</a></p>
 <p>The assignment is based on “Data quality control in genetic case-control association studies” (Anderson et al. 2010, Nature Protocols 5: 1564-73). This is the first article that you guys should read, and a pdf version is found <a href="https://github.com/izabelcavassim/Analyses_of_genome_data/blob/main/Papers/Paper1_Monday.pdf">here</a>.</p>
 </div>
 <div id="exercise-contents" class="section level1">
 <h1>Exercise contents</h1>
-<p>We will begin by performing sample QC, including calculation of call rates, heterozygosity, and sex discordance. We will then perform SNP QC, including calculation of call rates and deviation from Hardy-Weinberg equilibrium.</p>
+<p>We will begin by performing sample QC, including calculation of call rates, heterozygosity, and sex discordance. We will then perform SNP QC, including the calculation of call rates and deviation from Hardy-Weinberg equilibrium.</p>
 </div>
 <div id="data-input-and-data-output" class="section level1">
 <h1>Data Input and data output</h1>
@@ -383,7 +384,8 @@ pre code {
 <div id="identification-of-individuals-with-discordant-sex-information" class="section level2">
 <h2>Identification of individuals with discordant sex information</h2>
 <p>At the shell prompt, type:</p>
-<pre class="bash"><code>./plink --bfile GWA-data --check-sex --out GWA-data</code></pre>
+<pre class="bash"><code># shell
+./plink --bfile GWA-data --check-sex --out GWA-data</code></pre>
 <p>This command will infer the sex of the sample by looking at the mean homozygosity rate across X-chromosome markers and compare it the sex stated in the “.fam” file.</p>
 <div id="question-1" class="section level3">
 <h3>Question 1</h3>
@@ -394,7 +396,9 @@ pre code {
 <p>E1.2) Take a look at the output file “GWA-data.sexcheck” by typing <code>Bash cat GWA-data.sexcheck</code>. How many problematic samples are there?</p>
 <p>Problematic samples can be removed by copying the family ID (FID) and individual ID (IID) of the samples into a text file (e.g. wrong_sex.txt) and using the remove command: (Hint: subset the data in R)</p>
 <p>First let’s subset the GWA-data.sexcheck **in R*</p>
-<pre class="r"><code># Set your own directory containing the exercise data:
+<pre class="r"><code># R
+
+# Set your own directory containing the exercise data:
 setwd(&#39;/Users/PM/Dropbox/PHD/GVHH/Exercise1_data/&#39;)
 
 # Output of plink says:
@@ -411,10 +415,10 @@ View(wrong_sex)
 
 write.table(wrong_sex, file = &#39;wrong_sex.txt&#39;, row.names = FALSE, col.names = TRUE, quote = FALSE)</code></pre>
 <p>Now remove the individuos that were assigned with the wrong sex by typing:</p>
-<pre class="bash"><code># Bash
+<pre class="bash"><code># shell
 ./plink --bfile GWA-data --remove wrong_sex.txt --make-bed --out GWA-data</code></pre>
 <p>The –out option in plink specifies the prefix of the output files that plink generates. And when we use the –make-bed command with the same prefix as the input <strong>we are actually overwriting the input files</strong>. This is OK for these exercises (so we avoid using to much space on your machines) but on a “real” data set you might not want to do that. Note that once you try the first command again you won’t see problems in the sex-check. Let’s try it again:</p>
-<pre class="bash"><code># Bash
+<pre class="bash"><code># shell
 ./plink --bfile GWA-data --check-sex --out GWA-data</code></pre>
 </div>
 <div id="question-3" class="section level3">
@@ -425,7 +429,7 @@ write.table(wrong_sex, file = &#39;wrong_sex.txt&#39;, row.names = FALSE, col.na
 <div id="identification-of-individuals-with-elevated-missing-data-rates-or-outlying-heterozygosity-rate" class="section level2">
 <h2>Identification of individuals with elevated missing data rates or outlying heterozygosity rate</h2>
 <p>At the shell prompt, type:</p>
-<pre class="bash"><code># Bash
+<pre class="bash"><code># shell
 ./plink --bfile GWA-data --missing --out GWA-data</code></pre>
 <p>This command will create the files <em>“GWA-data.imiss”</em> and <em>“GWA-data.lmiss”</em>. The fourth column in the file “GWA-data.imiss” (N_MISS) denotes the number of missing SNPs and the sixth column (F_MISS) denotes the proportion of missing SNPs per individual. What is the mean of the values of N_MISS and F_MISS across the data?</p>
 <p>To compute this you can <em>use R</em> as following:</p>
@@ -438,7 +442,7 @@ mean(Imiss$N_MISS)
 # Mean of the frequency missing values
 mean(Imiss$F_MISS)</code></pre>
 <p>At the shell prompt type:</p>
-<pre class="bash"><code># Bash
+<pre class="bash"><code># shell
 ./plink --bfile GWA-data --het --out GWA-data </code></pre>
 <p>This command will create the file “GWA-data.het”, in which the third column denotes the observed number of homozygous genotypes [O(Hom)] and the fifth column denotes the number of non-missing genotypes [N(NM)] per individual.</p>
 <p>You can calculate the observed heterozygosity rate per individual using the formula:</p>

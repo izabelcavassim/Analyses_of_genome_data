@@ -3,8 +3,8 @@ title: "Assignment 1"
 author: "Maria Izabel Cavassim Alves"
 date: "11/29/2021"
 output:
-  word_document: default
   html_document: default
+  word_document: default
   pdf_document: default
 ---
 
@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# GVHH Exercise 1:
+# Assignment 1:
 ## GWAS Quality Control using PLINK
 Software:
 We will be using plink 1.9 which can be downloaded here:
@@ -36,12 +36,12 @@ https://www.rstudio.com/products/rstudio/download/
 # Data:
 In this practical, we will go through quality control (QC) steps of SNP/genotype data from a simulated genome-wide association study of 1000 cases and 1000 controls, typed for 317,503 autosomal and X chromosome SNPs.
 
-The data set for this exercise can be downloaded from the [Dropbox] website](https://www.dropbox.com/sh/l1htxivc3j56mh4/AABOiapxu9_cQnIf6vXZDelJa?dl=0)
+The data set for this exercise can be downloaded from the [Dropbox website](https://www.dropbox.com/sh/l1htxivc3j56mh4/AABOiapxu9_cQnIf6vXZDelJa?dl=0)
  
 The assignment is based on “Data quality control in genetic case-control association studies” (Anderson et al. 2010, Nature Protocols 5: 1564-73). This is the first article that you guys should read, and a pdf version is found [here](https://github.com/izabelcavassim/Analyses_of_genome_data/blob/main/Papers/Paper1_Monday.pdf).
 
 # Exercise contents
-We will begin by performing sample QC, including calculation of call rates, heterozygosity, and sex discordance.  We will then perform SNP QC, including calculation of call rates and deviation from Hardy-Weinberg equilibrium.  
+We will begin by performing sample QC, including calculation of call rates, heterozygosity, and sex discordance.  We will then perform SNP QC, including the calculation of call rates and deviation from Hardy-Weinberg equilibrium.  
 
 # Data Input and data output
 Throughout this exercise we will be using both PLINK (in the cluster) and R/Rstudio in your computer. To make life easier in terms of transferring files, I would recommend that:
