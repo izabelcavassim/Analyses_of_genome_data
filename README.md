@@ -1,5 +1,5 @@
 ---
-title: "Analyses of genome data - QCBio Collaborat"
+title: "Analyses of genome data - QCBio Collaboraty"
 author: "Maria Izabel Cavassim Alves"
 date: "11/24/2021"
 output: html_document
@@ -14,7 +14,7 @@ Students will also be exposed to the literature on the different topics, followe
 
 Learning goals
 =====================
-At the end of the workshop, the students will be able to:
+At the end of this workshop, the students will be able to:
 
 * Describe what a variant calling file (VCF) format is and how to manage those files.
 * Conduct quality assesment of a VCF.
