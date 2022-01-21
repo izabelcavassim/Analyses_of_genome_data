@@ -1,5 +1,5 @@
 ---
-title: "Analyses of genome data - QCBio Collaboraty"
+title: "Analyses of genome data - QCBio Collaboratory"
 author: "Maria Izabel Cavassim Alves"
 date: "11/24/2021"
 output: html_document
